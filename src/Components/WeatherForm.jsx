@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from 'axios';
 import WeatherIcon from '../assets/weather-icon.png';
 
+
 const WeatherForm = () => {
     const [data, setData] = useState({
         celcius: 10,

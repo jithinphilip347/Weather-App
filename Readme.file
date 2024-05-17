@@ -1,0 +1,62 @@
+# React Weather Application
+
+This is a simple React application that fetches weather data for a given city using the OpenWeatherMap API.
+
+## Features
+
+- Users can input a city name and fetch weather data.
+- Displays temperature, humidity, and weather description.
+- Handles errors during API requests.
+
+## Technologies Used
+
+- React.js
+- Tailwind CSS
+- Axios
+
+## Getting Started
+
+To run this application locally, follow these steps:
+
+1. Clone this repository:
+
+git clone https://github.com/jithinphilip347/Weather-App
+
+2. Navigate to the project directory:
+
+cd react-weather-app
+
+
+3. Install dependencies:
+
+npm install
+
+
+4. Obtain an API key from OpenWeatherMap by signing up on their website.
+
+5. Create a API key:
+
+
+
+
+6. Start the development:
+
+npm run dev
+
+
+7. Open your browser and navigate to `http://localhost:5173` to view the application.
+
+## Usage
+
+- Enter a city name in the input field and click the search button to fetch weather data.
+- The temperature, humidity, and weather description will be displayed once the data is fetched.
+- If there's an error during the API request, an error message will be displayed.
+
+## Credits
+
+- Icons: [React Icons](https://react-icons.github.io/react-icons/)
+- Background Image: [Unsplash](https://unsplash.com/)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
