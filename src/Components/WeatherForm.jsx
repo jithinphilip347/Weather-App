@@ -43,7 +43,7 @@ const WeatherForm = () => {
 
     return (
         <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center justify-center gap-3 relative bottom-[450px] p-2 rounded-3xl ">
+            <div className="flex items-center justify-center gap-3 relative bottom-[35px] p-2 rounded-3xl ">
                 <input
                     type="text"
                     placeholder="Enter City Name"
@@ -55,11 +55,11 @@ const WeatherForm = () => {
                 </button>
             </div>
             {loading ? (
-                <div className="relative bottom-[450px] text-white">Loading...</div>
+                <div className="relative bottom-[37px] text-white">Loading...</div>
             ) : error ? (
-                <div className="relative bottom-[450px] text-red-800">Error: {error}</div>
+                <div className="relative bottom-[37px] text-red-800">Error: {error}</div>
             ) : (
-                <div className="flex flex-col items-center gap-3 text-white relative bottom-[450px]">
+                <div className="flex flex-col items-center gap-3 text-white relative bottom-[48px]">
                     <img src={WeatherIcon} alt="" className="w-28 h-24" />
                     <h1 className="text-4xl">{Math.round(data.celcius)}°C</h1>
                     <h2 className="font-sans font-bold text-xl">{data.name}</h2>
