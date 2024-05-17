@@ -58,8 +58,8 @@ const WeatherForm = () => {
             ) : error ? (
                 <div className="text-red-800">Error: {error}</div>
             ) : (
-                <div className="flex flex-col items-center gap-3 text-white">
-                    <img src={WeatherIcon} alt="" className="w-28 h-24" />
+                <div className="flex flex-col items-center relative top-5 gap-4 text-white">
+                    <img src={WeatherIcon} alt="" className=" relative  w-28 h-24 " />
                     <h1 className="text-4xl">{Math.round(data.celcius)}°C</h1>
                     <h2 className="font-sans font-bold text-xl">{data.name}</h2>
                     <p className="text-lg">{data.description}</p>
