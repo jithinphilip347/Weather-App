@@ -17,54 +17,53 @@ const WeatherForm = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-      
     const handleClick = () => {
-        if(name !== ""){
+        if (name !== "") {
             setLoading(true);
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=a4bb378261573defd986d3324a9f2f33&units=metric`;
-        axios.get(apiUrl)
-            .then(res => {
-                setData({
-                    celcius: res.data.main.temp,
-                    name: res.data.name,
-                    description: res.data.weather[0].description,
-                    humidity: res.data.main.humidity,
-                    speed: res.data.wind.speed
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=a4bb378261573defd986d3324a9f2f33&units=metric`;
+            axios.get(apiUrl)
+                .then(res => {
+                    setData({
+                        celcius: res.data.main.temp,
+                        name: res.data.name,
+                        description: res.data.weather[0].description,
+                        humidity: res.data.main.humidity,
+                        speed: res.data.wind.speed
+                    });
+                })
+                .catch(err => {
+                    setError('Failed to fetch weather data. Please try again later.');
+                })
+                .finally(() => {
+                    setLoading(false);
                 });
-            })
-            .catch(err => {
-                setError('Failed to fetch weather data. Please try again later.');
-            })
-            .finally(() => {
-                setLoading(false);
-            });
         }
     }
 
     return (
         <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center justify-center gap-3 relative bottom-[35px] p-2 rounded-3xl ">
+            <div className="flex items-center justify-center gap-3 relative p-2 rounded-3xl ">
                 <input
                     type="text"
                     placeholder="Enter City Name"
                     onChange={(e) => setName(e.target.value)}
-                    className="p-2 rounded-3xl w-[720px]"
+                    className="p-2 rounded-3xl w-full md:w-[720px]"
                 />
                 <button className="rounded-full w-10 h-10 bg-white">
-                    <IoSearchOutline className="text-black relative top-[1px] left-[10px] " onClick={handleClick} alt="" size={20}/>
+                    <IoSearchOutline className="text-black relative top-[1px] left-[10px] " onClick={handleClick} alt="" size={20} />
                 </button>
             </div>
             {loading ? (
-                <div className="relative bottom-[37px] text-white">Loading...</div>
+                <div className="text-white">Loading...</div>
             ) : error ? (
-                <div className="relative bottom-[37px] text-red-800">Error: {error}</div>
+                <div className="text-red-800">Error: {error}</div>
             ) : (
-                <div className="flex flex-col items-center gap-3 text-white relative bottom-[48px]">
+                <div className="flex flex-col items-center gap-3 text-white">
                     <img src={WeatherIcon} alt="" className="w-28 h-24" />
                     <h1 className="text-4xl">{Math.round(data.celcius)}°C</h1>
                     <h2 className="font-sans font-bold text-xl">{data.name}</h2>
                     <p className="text-lg">{data.description}</p>
-                    <div className="flex items-center justify-between gap-32 text-lg">
+                    <div className="flex items-center justify-between gap-8 text-lg">
                         <div className="flex gap-1">
                             <WiHumidity className="relative top-1" size={50} />
                             <div className="flex flex-col gap-2">
